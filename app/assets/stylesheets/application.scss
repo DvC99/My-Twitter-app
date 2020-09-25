@@ -1,0 +1,52 @@
+/*
+ *= require_all
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ /*Se resetean los estilos iniciales*/
+ * {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     outline: 0;
+     vertical-align: baseline;
+     background: transparent;
+     box-sizing: border-box;
+     text-decoration: none;
+ }
+ /*Se le aplican los mismos estilos de letra a toda la pagina*/
+ * {
+     font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+     color: white;
+ }
+ /*Se le aplican el mismo color de fondo*/
+ body {
+     background-color: #15202b;
+ }
+ .image {
+     border-radius: 50%;
+     img{
+         border-radius: 50%;
+     }
+ }
+ .notifications:not(:last-child){
+     margin-bottom: 0;
+ }
+ textarea.textarea-autosize {
+     height: 2.25rem;
+     min-height: 2.25rem;
+     resize: none;
+     overflow-y:hidden;
+ }
+ textarea.textarea-autosize.form-control-lg {
+     height: 3.75rem;
+     min-height: 3.75rem;
+ }
+ .bg-card{
+     background-color: #192734;
+  }
+ .bg-card-2{
+    background-color: #253341;
+ }
+ 

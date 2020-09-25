@@ -1,0 +1,70 @@
+<div >
+    <%= image_tag("icons8-twitter-96.png", size:"60x60", :alt =>"", :loading =>"lazy", class:"d-block")%>
+    <div class="d-flex justify-content-start d-block ">
+        <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+            <path fill-rule="evenodd"
+                d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+        </svg>
+        <%= form_with(url: home_path(), method: "get",class:"pt-3 mt-1 ") do %>
+        <%= submit_tag('Inicio',class:"btn text-white") %>
+        <% end %>
+    </div>
+    <div class="d-flex justify-content-start d-block ">
+        <svg width="25px" height="25px" viewBox="0 0 16 17" class="bi bi-compass" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016zm6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+            <path d="M6.94 7.44l4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z" />
+        </svg>
+        <button type="button" class="btn text-white "> Explorar</button>
+    </div>
+    <div class="d-flex justify-content-start d-block ">
+        <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-bell" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z" />
+            <path fill-rule="evenodd"
+                d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+        </svg>
+        <button type="button" class="btn text-white ">Notificaciones</button>
+    </div>
+    <div class="d-flex justify-content-start d-block ">
+        <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-inbox" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438L14.933 9zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z" />
+        </svg>
+        <button type="button" class="btn text-white ">Mensajes</button>
+    </div>
+    <div class="d-flex justify-content-start d-block ">
+        <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+        </svg>
+        <%= form_with(url: profile_path(current_user.username), method: "get",class:"pt-3 mt-1 ") do %>
+        <%= submit_tag('Perfil',class:"btn text-white") %>
+        <% end %>
+
+    </div>
+    <div class="d-flex justify-content-center d-block ">
+        <button type="button" class="btn btn-outline-primary btn-lg  ">Twittear</button>
+    </div>
+    <div class="fixed-bottom">
+        <div class="row">
+            <div class="col-md-4 ">
+                <div class="footer-copyright d-flex justify-content-end d-block mb-3 mr-1 pb-5 pr-5">               
+                <%= form_with(url: destroy_user_session_path, method: "delete") do %>
+                <%= submit_tag('Logout',class:"btn btn-primary") %>
+                <% end %>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+            </div>
+            <div class="col-md-4 ">
+            </div>
+        </div>       
+    </div>
+</div>

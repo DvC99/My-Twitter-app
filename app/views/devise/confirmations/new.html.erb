@@ -1,0 +1,71 @@
+<div class="form-signin ">
+  <h2 class="h1 mb-3 font-weight-normal text-center">Resend confirmation instructions</h2>
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+    <%= f.label :email, class:"h6"%><br />
+    <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  </div>
+
+
+  <div class="actions d-flex justify-content-end">
+    <%= f.submit "Resend confirmation instructions" ,class:" btn btn-outline-primary"%>
+
+  </div>
+  <%= render "devise/shared/links" %>
+  <% end %>
+  <section class="footer navbar  mt-5 mb-3 text-muted d-flex justify-content-center ">
+    <a href="#">
+      About
+    </a>
+    <a href="#">
+      Help Center
+    </a>
+    <a href="#">
+      Terms
+    </a>
+    <a href="#">
+      Privacy policy
+    </a>
+    <a href="#">
+      Cookies
+    </a>
+    <a href="#">
+      Ads info
+    </a>
+    <a href="#">
+      Blog
+    </a>
+    <a href="#">
+      Status
+    </a>
+    <a href="#">
+      Jobs
+    </a>
+    <a href="#">
+      Brand
+    </a>
+    <a href="#">
+      Advertise
+    </a>
+    <a href="#">
+      Markething
+    </a>
+    <a href="#">
+      Businesses
+    </a>
+    <a href="#">
+      Developers
+    </a>
+    <a href="#">
+      Directory
+    </a>
+    <a href="#">
+      Settings
+    </a>
+    <a class="corpor">
+      © 2020 Twitter, Inc.
+    </a>
+  </section>
+</div>

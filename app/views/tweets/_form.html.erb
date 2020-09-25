@@ -1,0 +1,7 @@
+<%= form_with(model: Tweet, local: true) do |f| %>
+<div class="form-group">
+  <%= f.label :twittear, "New Tweet"%>
+  <%= f.text_area :twittear, id: "txtarea", class: "form-control form-control-lg textarea-autosize text-black", :maxlength => 280  %>
+</div>
+<%= f.button :Post, class: "btn btn-primary" %>
+<% end %>

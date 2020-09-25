@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Twitter</title>
+  <%= favicon_link_tag 'favicon.png' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <!-- Con estas 2 líneas llamamos a los archivos CSS y Javascript de Bootstrap y demás -->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- Utilidad CSS de Bootstrap externa (No es necesario, si esta línea ya debería funcionarte Bootstrap) -->
+  <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
+</head>
+
+
+<body>
+   <% if flash[:notice] %>
+    <div class="notification alert alert-primary global-notification" role="alert">
+      <p class="notice"><%= notice %></p>
+    </div>
+  <% end %>
+  <% if flash[:alert]%>
+    <div class="notification alert alert-danger global-notification" role="alert">
+      <p class="alert"><%= alert %></p>
+    </div>
+  <% end %>  
+
+  <div class="fixed-top d-flex justify-content-end "> 
+  <% if user_signed_in? %>
+    <nav class="navbar navbar-expand bg-transparent ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <%= form_with(url: destroy_user_session_path, method: "delete",class:"form-inline my-2 my-lg-0") do |f|%>
+          <%= f.text_field :usuarios ,class:"form-control mr-sm-2"%>
+          <%= submit_tag('Search',class:"btn btn-outline-primary my-2 my-sm-0") %>
+          <% end %>
+        </div>
+    </nav>
+  </div>
+  <% end %>
+  
+  <%= yield %>
+  
+</body>
+
+</html>

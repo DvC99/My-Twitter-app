@@ -1,0 +1,80 @@
+<head>
+    <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="container text-center">
+
+    <form class="form-signin">
+        <div class="d-flex justify-content-center">
+            <%= image_tag("icons8-twitter-96.png", size:"80x80", :alt =>"", :loading =>"lazy", class:"d-block") %>
+        </div>
+        <h1 class="h2 mb-3 font-weight-normal text-center">Welcome to Twitter</p>
+            <p class="h6 mb-3 font-weight-normal d-block">See what's happening in the world right now</p>
+
+            <div class="p-2">
+                <form>
+                </form>
+                <form action="users/sign_in" method="get">
+                    <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Log in</button>
+                </form>
+            </div>
+            <div class="p-2">
+                <form action="users/sign_up" method="get">
+                    <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Sign Up</button>
+                </form>
+            </div>
+            <section class="footer navbar  mt-5 mb-3 text-muted d-flex justify-content-center ">
+                <a href="#">
+                    About
+                </a>
+                <a href="#">
+                    Help Center
+                </a>
+                <a href="#">
+                    Terms
+                </a>
+                <a href="#">
+                    Privacy policy
+                </a>
+                <a href="#">
+                    Cookies
+                </a>
+                <a href="#">
+                    Ads info
+                </a>
+                <a href="#">
+                    Blog
+                </a>
+                <a href="#">
+                    Status
+                </a>
+                <a href="#">
+                    Jobs
+                </a>
+                <a href="#">
+                    Brand
+                </a>
+                <a href="#">
+                    Advertise
+                </a>
+                <a href="#">
+                    Markething
+                </a>
+                <a href="#">
+                    Businesses
+                </a>
+                <a href="#">
+                    Developers
+                </a>
+                <a href="#">
+                    Directory
+                </a>
+                <a href="#">
+                    Settings
+                </a>
+                <a class="corpor">
+                    © 2020 Twitter, Inc.
+                </a>
+            </section>
+    </form>
+</body>
