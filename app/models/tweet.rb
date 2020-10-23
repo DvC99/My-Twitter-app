@@ -1,3 +1,2 @@
 class Tweet < ApplicationRecord
-    
 end

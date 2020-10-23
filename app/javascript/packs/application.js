@@ -13,8 +13,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-//= require jquery3
-//= require popper
-//= require bootstrap
-//= require jquery
-//= require jquery_ujs 
+function countChars(){
+    var strLength = document.getElementById(txtarea).value.length;   
+    document.getElementById("charNum").innerHTML = strLength+'/280';
+}

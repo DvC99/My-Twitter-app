@@ -1,5 +1,7 @@
 <h1>Editing Tweet</h1>
-
+<%= link_to edit_tweet_path(tweet), class: "level-item p-1" do %>
+                        <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                        <% end %>
 <%= render 'form', tweet: @tweet %>
 
 <%= link_to 'Show', @tweet %> |

@@ -4,11 +4,26 @@ azul oscuro= rgb(21,32,43)
 azul claro= rgb(29,161,242)
 azul form=rgb(25,39,52)
 */
+/*Se resetean los estilos iniciales*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    box-sizing: border-box;
+    text-decoration: none;
+}
 body {
     display: flex;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    align-items: center;    
+}
+.sign-ip{
+    margin-top: 20px;
+    margin-bottom: 9%;
+    padding-top: 3%;
+    padding-bottom: 9%;
 }
 .form-signin {
     width: 100%;

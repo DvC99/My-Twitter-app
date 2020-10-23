@@ -15,20 +15,25 @@
 </head>
 
 
-<body>
+<body> 
+
    <% if flash[:notice] %>
-    <div class="notification alert alert-primary global-notification" role="alert">
-      <p class="notice"><%= notice %></p>
+    <div class="fixed-top d-flex justify-content-center pl-5 pr-5">
+      <div class="alert alert-primary " style="width: 20%" role="alert">
+        <p class="notice text-center"><%= notice %></p>
+      </div>
     </div>
   <% end %>
   <% if flash[:alert]%>
-    <div class="notification alert alert-danger global-notification" role="alert">
+    <div class="pl-5 pr-5">
+      <div class="notification alert alert-danger global-notification fixed-top d-flex justify-content-center pl-5 pr-5" role="alert">
       <p class="alert"><%= alert %></p>
     </div>
-  <% end %>  
-
+    </div>
+  <% end %> 
+  
   <div class="fixed-top d-flex justify-content-end "> 
-  <% if user_signed_in? %>
+   <% if user_signed_in? %>
     <nav class="navbar navbar-expand bg-transparent ">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

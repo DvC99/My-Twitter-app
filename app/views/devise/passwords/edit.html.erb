@@ -1,25 +1,92 @@
-<h2>Change your password</h2>
+<head>
+  <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<section class="container text-center sign-ip">
+  <div class="form-signin ">
+    <div class="d-flex justify-content-center">
+      <%= image_tag("favicon.png", size:"80x80", :alt =>"", :loading =>"lazy", class:"d-block") %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+    <h2 class="h2 mb-3 font-weight-normal text-center ">Change your password</h2>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="form-group text-md-left">
+      <%= f.label :password, "New password" %><br />
+      <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <% end %>
+      <%= f.password_field :password, class:"form-control ", autofocus: true, autocomplete: "new-password" %>
+    </div>
+
+    <div class="form-group text-md-left">
+      <%= f.label :password_confirmation, "Confirm new password" %><br />
+      <%= f.password_field :password_confirmation, class:"form-control ", autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions d-flex justify-content-end">
+      <%= f.submit "Change my password", class:" btn btn-outline-primary" %>
+    </div>
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <div class="text-md-left">
+      <%= render "devise/shared/links" %>
+    </div>
+    <section class="footer  navbar  mt-5 mb-3 text-muted d-flex justify-content-center fixed-bottom">
+      <a href="#">
+        About
+      </a>
+      <a href="#">
+        Help Center
+      </a>
+      <a href="#">
+        Terms
+      </a>
+      <a href="#">
+        Privacy policy
+      </a>
+      <a href="#">
+        Cookies
+      </a>
+      <a href="#">
+        Ads info
+      </a>
+      <a href="#">
+        Blog
+      </a>
+      <a href="#">
+        Status
+      </a>
+      <a href="#">
+        Jobs
+      </a>
+      <a href="#">
+        Brand
+      </a>
+      <a href="#">
+        Advertise
+      </a>
+      <a href="#">
+        Markething
+      </a>
+      <a href="#">
+        Businesses
+      </a>
+      <a href="#">
+        Developers
+      </a>
+      <a href="#">
+        Directory
+      </a>
+      <a href="#">
+        Settings
+      </a>
+      <a class="corpor">
+        © 2020 Twitter, Inc.
+      </a>
+    </section>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

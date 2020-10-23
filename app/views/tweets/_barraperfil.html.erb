@@ -8,9 +8,7 @@
             <path fill-rule="evenodd"
                 d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
         </svg>
-        <%= form_with(url: home_path(), method: "get",class:"pt-3 mt-1 ") do %>
-        <%= submit_tag('Inicio',class:"btn text-white") %>
-        <% end %>
+        <%=button_to( 'Inicio',  home_path(), :method => :get, class:"btn text-white pt-1 mt-4 " )%>
     </div>
     <div class="d-flex justify-content-start d-block ">
         <svg width="25px" height="25px" viewBox="0 0 16 17" class="bi bi-compass" fill="currentColor"
@@ -44,21 +42,16 @@
             <path fill-rule="evenodd"
                 d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
         </svg>
-        <%= form_with(url: profile_path(current_user.username), method: "get",class:"pt-3 mt-1 ") do %>
-        <%= submit_tag('Perfil',class:"btn text-white") %>
-        <% end %>
-
+        <%=button_to( 'Perfil',  profile_path(current_user.username), :method => :get, class:"btn text-white pt-1 mt-4" )%>
     </div>
     <div class="d-flex justify-content-center d-block ">
         <button type="button" class="btn btn-outline-primary btn-lg  ">Twittear</button>
-    </div>
+    </div> 
     <div class="fixed-bottom">
         <div class="row">
-            <div class="col-md-4 ">
+            <div class="col-md-3 ">
                 <div class="footer-copyright d-flex justify-content-end d-block mb-3 mr-1 pb-5 pr-5">               
-                <%= form_with(url: destroy_user_session_path, method: "delete") do %>
-                <%= submit_tag('Logout',class:"btn btn-primary") %>
-                <% end %>
+                <%=button_to( 'Logout', destroy_user_session_path, :method => :delete, class:"btn btn-primary" )%>
                 </div>
             </div>
             <div class="col-md-4 ">

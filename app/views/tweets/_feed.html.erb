@@ -35,13 +35,9 @@
                 </div>
                 <nav class="level">
                     <div class="level-left is-mobile d-flex justify-content-start">
-                        <%= link_to tweet, class: "level-item p-1" do %>
-                        <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-                        <% end %>
+                        
                         <%if tweet.username== current_user.username %>
-                        <%= link_to edit_tweet_path(tweet), class: "level-item p-1" do %>
-                        <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                        <% end %>
+                        
                         <%= form_with(url: tweet, method: "delete", class: "level-item p-1") do %>
                             <%= button_tag('',class:'icon' , data: {confirm: "Are you sure?"}) do %><i class="fa fa-trash-o" aria-hidden="true"></i>
                             <% end %>

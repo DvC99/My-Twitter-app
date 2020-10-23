@@ -2,11 +2,10 @@
     <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body class="container text-center">
-
+<section class="container text-center sign-ip">
     <form class="form-signin">
         <div class="d-flex justify-content-center">
-            <%= image_tag("icons8-twitter-96.png", size:"80x80", :alt =>"", :loading =>"lazy", class:"d-block") %>
+            <%= image_tag("favicon.png", size:"80x80", :alt =>"", :loading =>"lazy", class:"d-block") %>
         </div>
         <h1 class="h2 mb-3 font-weight-normal text-center">Welcome to Twitter</p>
             <p class="h6 mb-3 font-weight-normal d-block">See what's happening in the world right now</p>
@@ -23,7 +22,7 @@
                     <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Sign Up</button>
                 </form>
             </div>
-            <section class="footer navbar  mt-5 mb-3 text-muted d-flex justify-content-center ">
+            <section class="footer  navbar  mt-5 mb-3 text-muted d-flex justify-content-center fixed-bottom">
                 <a href="#">
                     About
                 </a>
@@ -77,4 +76,4 @@
                 </a>
             </section>
     </form>
-</body>
+</section>

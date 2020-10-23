@@ -1,91 +1,100 @@
-<div class="form-signin ">
-  
-  <div class="d-flex justify-content-center">
-    <%= image_tag("icons8-twitter-96.png", size:"80x80", :alt =>"", :loading =>"lazy", class:"d-block") %>
-    <p class="h6 mb-3 font-weight-normal d-flex ">See what's happening in the world right now</p>
-  </div>
-  <h2 class="h1 mb-3 font-weight-normal text-center">Sign up</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<head>
+  <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <div class="form-group">
-    <%= f.label :email, class:"h6"%><br />
-    <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :username, class:"h6" %><br />
-    <%= f.text_field :username,class:"form-control", autofocus: true, autocomplete: "username" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password, class:"h6" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password,class:"form-control",autocomplete: "new-password" %>
-  </div>
+<section class="container text-center sign-ip">
+  <div class="form-signin ">
+    <div class="d-flex justify-content-center">
+      <%= image_tag("favicon.png", size:"80x80", :alt =>"", :loading =>"lazy", class:"d-block") %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation , class:"h6"%><br />
-    <%= f.password_field :password_confirmation,class:"form-control", autocomplete: "new-password" %>
-  </div>
+    <h2 class="h2 mb-3 font-weight-normal text-center ">Sign up</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <div class="actions d-flex justify-content-end">
-    <%= f.submit "Sign up" ,class:" btn btn-outline-primary"%>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
+    <div class="form-group text-md-left">
+      <%= f.label :email, class:"h6"%><br />
+      <%= f.email_field :email, class:"form-control ", autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="form-group text-md-left">
+      <%= f.label :username, class:"h6" %><br />
+      <%= f.text_field :username,class:"form-control ", autofocus: true, autocomplete: "username" %>
+    </div>
+    <div class="form-group text-md-left">
+      <%= f.label :password, class:"h6 " %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password,class:"form-control",autocomplete: "new-password" %>
+    </div>
+
+    <div class="form-group text-md-left">
+      <%= f.label :password_confirmation , class:"h6"%><br />
+      <%= f.password_field :password_confirmation,class:"form-control", autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions d-flex justify-content-end">
+      <%= f.submit "Sign up" ,class:" btn btn-outline-primary"%>
+
+    </div>
+    <div class="text-md-left">
+      <%= render "devise/shared/links" %>
+    </div>
+
+    <% end %>
+    <section class="footer  navbar  mt-5 mb-3 text-muted d-flex justify-content-center fixed-bottom">
+      <a href="#">
+        About
+      </a>
+      <a href="#">
+        Help Center
+      </a>
+      <a href="#">
+        Terms
+      </a>
+      <a href="#">
+        Privacy policy
+      </a>
+      <a href="#">
+        Cookies
+      </a>
+      <a href="#">
+        Ads info
+      </a>
+      <a href="#">
+        Blog
+      </a>
+      <a href="#">
+        Status
+      </a>
+      <a href="#">
+        Jobs
+      </a>
+      <a href="#">
+        Brand
+      </a>
+      <a href="#">
+        Advertise
+      </a>
+      <a href="#">
+        Markething
+      </a>
+      <a href="#">
+        Businesses
+      </a>
+      <a href="#">
+        Developers
+      </a>
+      <a href="#">
+        Directory
+      </a>
+      <a href="#">
+        Settings
+      </a>
+      <a class="corpor">
+        © 2020 Twitter, Inc.
+      </a>
+    </section>
   </div>
-  <%= render "devise/shared/links" %>
-  <% end %>
-  <section class="footer navbar  mt-5 mb-3 text-muted d-flex justify-content-center ">
-    <a href="#">
-      About
-    </a>
-    <a href="#">
-      Help Center
-    </a>
-    <a href="#">
-      Terms
-    </a>
-    <a href="#">
-      Privacy policy
-    </a>
-    <a href="#">
-      Cookies
-    </a>
-    <a href="#">
-      Ads info
-    </a>
-    <a href="#">
-      Blog
-    </a>
-    <a href="#">
-      Status
-    </a>
-    <a href="#">
-      Jobs
-    </a>
-    <a href="#">
-      Brand
-    </a>
-    <a href="#">
-      Advertise
-    </a>
-    <a href="#">
-      Markething
-    </a>
-    <a href="#">
-      Businesses
-    </a>
-    <a href="#">
-      Developers
-    </a>
-    <a href="#">
-      Directory
-    </a>
-    <a href="#">
-      Settings
-    </a>
-    <a class="corpor">
-      © 2020 Twitter, Inc.
-    </a>
-  </section>
-</div>
+</section>
