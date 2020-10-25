@@ -9,11 +9,16 @@ class TweetsController < ApplicationController
   def home
     @tweets = Tweet.all.order("created_at DESC")
     @tweet = Tweet.new
+    @user = current_user.username
+    @CountTweets = Tweet.where(:username => current_user.username).count
+    @users = User.where("username !=:username", username: current_user.username)  
   end
 
   def profile
     @tweets = Tweet.where(:username => params[:username]).order("created_at DESC")
     @user = params[:username]
+    @CountTweets = Tweet.where(:username => current_user.username).count
+    @users = User.where("username !=:username", username: current_user.username) 
   end
 
   def show

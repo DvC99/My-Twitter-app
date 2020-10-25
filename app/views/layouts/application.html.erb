@@ -15,43 +15,40 @@
 </head>
 
 
-<body> 
+<body>
 
-   <% if flash[:notice] %>
-    <div class="fixed-top d-flex justify-content-center pl-5 pr-5">
-      <div class="alert alert-primary " style="width: 20%" role="alert">
-        <p class="notice text-center"><%= notice %></p>
-      </div>
+  <% if flash[:notice] %>
+  <div class="fixed-top d-flex justify-content-center pl-5 pr-5">
+    <div class="alert alert-primary " style="width: 20%" role="alert">
+      <p class="notice text-center"><%= notice %></p>
     </div>
-  <% end %>
-  <% if flash[:alert]%>
-    <div class="pl-5 pr-5">
-      <div class="notification alert alert-danger global-notification fixed-top d-flex justify-content-center pl-5 pr-5" role="alert">
-      <p class="alert"><%= alert %></p>
-    </div>
-    </div>
-  <% end %> 
-  
-  <div class="fixed-top d-flex justify-content-end "> 
-   <% if user_signed_in? %>
-    <nav class="navbar navbar-expand bg-transparent ">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <%= form_with(url: destroy_user_session_path, method: "delete",class:"form-inline my-2 my-lg-0") do |f|%>
-          <%= f.text_field :usuarios ,class:"form-control mr-sm-2"%>
-          <%= submit_tag('Search',class:"btn btn-outline-primary my-2 my-sm-0") %>
-          <% end %>
-        </div>
-    </nav>
   </div>
   <% end %>
-  
+  <% if flash[:alert]%>
+  <div class="pl-5 pr-5">
+    <div class="notification alert alert-danger global-notification fixed-top d-flex justify-content-center pl-5 pr-5"
+      role="alert">
+      <p class="alert"><%= alert %></p>
+    </div>
+  </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+  <div class="fixed-top d-flex justify-content-center">    
+    <div class="p-2">
+      <%= form_with(url: destroy_user_session_path, method: "delete",class:"form-inline my-2 my-lg-0") do |f|%>
+      <%= f.text_field :usuarios ,class:"form-control form-control-sm mr-2", placeholder:"Buscar"%>
+      <%= submit_tag('Search',class:"btn btn-outline-primary my-2") %>
+      <% end %>
+    </div>
+    <div class="p-2 ml-5 btn-logout">
+      <%=button_to( 'Logout', destroy_user_session_path, :method => :delete, class:"btn btn-outline-primary my-2" )%>
+    </div>    
+  </div>
+  <% end %>
+
   <%= yield %>
-  
+
 </body>
 
 </html>

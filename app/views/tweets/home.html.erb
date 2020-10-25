@@ -4,14 +4,21 @@
       <div class="row-md-4 d-flex justify-content-end">
         <div class="position-fixed">
           <%= render "barraperfil.html.erb"%>
+          <div class="mt-5 pt-5">
+            <% if user_signed_in? %>
+            <div class="footer-copyright d-flex justify-content-end d-block mb-3 mr-1 pb-5 pr-5">
+              <%= render "mini_profile.html.erb"%>
+            </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <%= render "feed.html.erb"%>
     </div>
-    <div class="col-md-4">
-      <div class="position-fixed w-25">
+    <div class="col-md-4 pl-5 ml-5">
+      <div class="position-fixed w-25 ">
         <%= render "who_to_follow.html.erb"%>
         <%= render "trends.html.erb"%>
       </div>
