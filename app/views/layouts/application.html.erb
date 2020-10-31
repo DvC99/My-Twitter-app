@@ -35,14 +35,14 @@
 
   <% if user_signed_in? %>
   <div class="fixed-top d-flex justify-content-center">    
-    <div class="p-2">
+    <div class="p-2 pr-5 mr-5">
       <%= form_with(url: destroy_user_session_path, method: "delete",class:"form-inline my-2 my-lg-0") do |f|%>
-      <%= f.text_field :usuarios ,class:"form-control form-control-sm mr-2", placeholder:"Buscar"%>
-      <%= submit_tag('Search',class:"btn btn-outline-primary my-2") %>
+      <%= f.text_field :usuarios ,class:"form-control mr-2", style:"background-color: #253341; border: #15202b; width: 920px;" ,placeholder:"Search"%>
+      <%= submit_tag('Search', class:"btn btn-outline-primary my-2", style:"") %>
       <% end %>
     </div>
-    <div class="p-2 ml-5 btn-logout">
-      <%=button_to( 'Logout', destroy_user_session_path, :method => :delete, class:"btn btn-outline-primary my-2" )%>
+    <div class="p-2 ">
+      <%=button_to( 'Logout', destroy_user_session_path, :method => :delete, class:"btn btn-outline-primary my-2")%>
     </div>    
   </div>
   <% end %>

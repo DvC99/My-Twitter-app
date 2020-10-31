@@ -1,13 +1,30 @@
-<nav class="card text-white bg-card mb-3 ">
-    <div class="container">
-        <div class="p-2">
-            <strong class="card-header">Who to follow</strong> 
+<div class="fixed container-fluid pt-4">
+  <div class="row">
+    <div class="col-md-3 ">
+      <div class="row-md-4 d-flex justify-content-end">
+        <div class="position-fixed">
+          <%= render "barraperfil.html.erb"%>
+          <div class="mt-5 pt-5">
+            <% if user_signed_in? %>
+            <div class="footer-copyright d-flex justify-content-end d-block mb-3 mr-1 pb-5 pr-5">
+              <%= render "mini_profile.html.erb"%>
+            </div>
+            <% end %>
+          </div>
         </div>
-        <div class="scrollWhoFollow scrollbar-black bordered-black square thin">
-            <%@users.each do |user| %>  
-
-                <% if Follow.where(:follower_id => current_user.id).where(:followee_id => user.id).count == 0%>               
-                    <div class="card bg-card-2 mb-4">
+      </div>
+    </div>
+    <div class="col-md-4">
+<div class="fixed container-fluid pt-4">
+  <nav class="card text-white bg-card  ">
+    <div class="container">
+        <div class="card-header">
+            <strong >Following</strong>  
+        </div>
+        <div class="scrolllistFollow">
+            <%@users2.each do |user| %> 
+            <% if user != nil %>
+                <div class="card bg-card-2 mb-4">
                         <div class="container p-2 pl-3">
                             <article class="media">
                                 <div class="align-self-star">
@@ -40,14 +57,34 @@
                                                 </div>
                                             </div>
                                         </small>                                
-                                            <%=button_to( 'Follow', follow_user_path(user.id), method: "POST", class:"btn btn-outline-primary my-2" )%>                        
+                                           <% if user != current_user  %>
+                                                <%if Follow.where(:follower_id => current_user.id).where(:followee_id => user.id).count == 0%>
+                                                    <%=button_to( 'Follow', follow_user_path(user.id), method: "POST", class:"btn btn-outline-primary my-2" )%>
+                                                <% else %>
+                                                    <%=button_to( 'Unfollow', unfollow_user_path(user.id), method: "POST", class:"btn btn-outline-primary my-2" )%>
+                                                <% end%> 
+                                            <% end %>                    
                                     </div>
                                 </div>
                             </article>
                         </div>
                     </div>
-                <% end %>
+            <% end %>
+                         
+                    
             <% end %>
         </div>
     </div>
 </nav>
+</div>
+
+    </div>
+    <div class="col-md-4 pl-5 ml-5">
+      <div class="position-fixed w-25 ">
+        <%= render "who_to_follow.html.erb"%>
+        <%= render "trends.html.erb"%>
+      </div>
+    </div>
+  </div>
+</div>
+

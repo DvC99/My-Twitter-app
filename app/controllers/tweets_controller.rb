@@ -7,32 +7,59 @@ class TweetsController < ApplicationController
     end
   end
   def home
-    @tweets = Tweet.all.order("created_at DESC")
-    @tweet = Tweet.new
+    @tweets = Tweet.where(username: User.where("username =:username", username: current_user.username ).select(:username).or(User.where(id: Follow.select(:followee_id).where("follower_id =:follower_id",  follower_id:current_user.id)).select(:username))).order("created_at DESC")
     @user = current_user.username
     @CountTweets = Tweet.where(:username => current_user.username).count
-    @users = User.where("username !=:username", username: current_user.username)  
-  end
-
+    @CountFollowers = Follow.where("followee_id =:followee_id",  followee_id:current_user.id).count#seguidor
+    @CountFollowing = Follow.where("follower_id =:follower_id",  follower_id:current_user.id).count#seguido
+    @users = User.where("username !=:username", username: current_user.username)
+ end
   def profile
     @tweets = Tweet.where(:username => params[:username]).order("created_at DESC")
-    @user = params[:username]
-    @CountTweets = Tweet.where(:username => current_user.username).count
-    @users = User.where("username !=:username", username: current_user.username) 
+    @CountTweets = Tweet.where(:username => :username).count
+    @userProfile=User.find_by(username:  params[:username])
+    @CountFollowers = Follow.where("followee_id =:followee_id",  followee_id:@userProfile.id).count#seguidor
+    @CountFollowing = Follow.where("follower_id =:follower_id",  follower_id:@userProfile.id).count#seguido
+    @users = User.where("username !=:username", username: current_user.username)
   end
-
+  def Followers
+    @user = current_user.username
+    @userProfile = User.find_by(username:  params[:username])
+    @users2 = User.where(id: Follow.select(:follower_id).where("followee_id =:followee_id",  followee_id:@userProfile.id))
+    @CountTweets = Tweet.where(:username => @userProfile.username).count
+    @CountFollowers = Follow.where("followee_id =:followee_id",  followee_id:@userProfile.id).count#seguidor
+    @CountFollowing = Follow.where("follower_id =:follower_id",  follower_id:@userProfile.id).count#seguido
+    @users = User.where("username !=:username", username: current_user.username)
+  end
+  def Following
+    @user = current_user.username
+    @users = User.where("username !=:username", username: current_user.username)
+    @userProfile = User.find_by(username:  params[:username])
+    @users2 = User.where(id: Follow.select(:followee_id).where("follower_id =:follower_id",  follower_id:@userProfile.id))
+    @CountTweets = Tweet.where(:username => @userProfile.username).count
+    @CountFollowers = Follow.where("followee_id =:followee_id",  followee_id:@userProfile.id).count#seguidor
+    @CountFollowing = Follow.where("follower_id =:follower_id",  follower_id:@userProfile.id).count#seguido
+    
+  end
+  def follow
+    @user = User.find(params[:id])
+    current_user.followees << @user
+    redirect_back(fallback_location: root_path)
+  end
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.followed_users.find_by(followee_id: @user.id).destroy
+    redirect_back(fallback_location: root_path)
+  end
   def show
     @tweet = Tweet.find(params[:id])
   end
-
   def new
     @tweet = Tweet.new
   end
-
   def edit
     @tweet = Tweet.find(params[:id])
   end
-
   def create
     current_username = { "username": current_user.username }
     @tweet = Tweet.new(current_username.merge(tweet_params))
@@ -44,7 +71,6 @@ class TweetsController < ApplicationController
         render :new
     end
   end
-
   def update
     respond_to do |format|
       if @tweet.update(tweet_params)
@@ -56,14 +82,12 @@ class TweetsController < ApplicationController
       end
     end
   end
-
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
     flash[:success] = "Tweet successfully deleted"
     redirect_to home_path
   end
-
   private
     def tweet_params
       params.require(:tweet).permit(:twittear)

@@ -15,12 +15,10 @@ azul form=rgb(25,39,52)
     box-sizing: border-box;
     text-decoration: none;
 }
-
 body {
     display: flex;
     align-items: center;
 }
-
 .sign-ip {
     height: 100%;
     margin-top: 20px;
@@ -28,14 +26,12 @@ body {
     padding-top: 3%;
     padding-bottom: 9%;
 }
-
 .form-signin {
     width: 100%;
     max-width: 330px;
     padding: 15px;
     margin: auto;
 }
-
 .form-control {
     position: relative;
     box-sizing: border-box;
@@ -43,7 +39,6 @@ body {
     padding: 10px;
     font-size: 16px;
 }
-
 .sr-only {
     position: absolute;
     width: 1px;
@@ -54,13 +49,11 @@ body {
     white-space: nowrap;
     border: 0;
 }
-
 svg {
     color: white;
     height: 50px;
     margin: 15px;
 }
-
 .formUser {
     color: #649996;
     display: inline-block;
@@ -69,16 +62,13 @@ svg {
     border-bottom: 1px solid #8899a6;
     background: #192734;
 }
-
 .forgot {
     color: #1895e0;
 
 }
-
 .copor {
     color: #649996;
 }
-
 .footer a {
     color: #649996;
     font-size: 13px;
@@ -86,8 +76,32 @@ svg {
 }
 .scrollWhoFollow {
     height: 361px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
-.btn-logout {
-    
+.scrollfeed {
+    height: 630px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.scrollbar-black {
+    scrollbar-color: #72787e #17212b;
+}
+.bordered-black::-webkit-scrollbar-track {
+    border: 1px solid #000;
+}
+
+.square::-webkit-scrollbar-track {
+    border-radius: 0 !important;
+}
+.square::-webkit-scrollbar-thumb {
+    border-radius: 0 !important;
+}
+.thin::-webkit-scrollbar {
+    width: 6px;
+}
+.scrolllistFollow {
+    height: 750px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

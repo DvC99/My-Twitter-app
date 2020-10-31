@@ -8,8 +8,33 @@
                 </figure>
             </div>
             <div class="media-body">
-                <div class="mt-0 mb-1">
-                    <strong class="card-title"><%= @user %></strong><br />
+                <div class="mt-0 mb-0">
+                    <strong class="card-title">
+                        <%= link_to "#{@userProfile.username}", profile_path(@userProfile.username) ,class:"text-white"%>
+                    </strong><br/>
+                    <small class="card-text">
+                        <div class="row">
+                            <div class="col text-center p-0 m-0">
+                                <p class="heading p-0 m-0">Tweeets</p>
+                                <p class="small"><%=@CountTweets%></p>
+                            </div>
+                            <div class="col text-center">
+                                <%= link_to "Following", following_path(@userProfile.username) ,class:"text-white heading"%>
+                                <p class="small"><%=@CountFollowing%></p>
+                            </div>
+                            <div class="col text-center">
+                                <%= link_to "Followers", followers_path(@userProfile.username) ,class:"text-white heading   "%>
+                                <p class="small"><%=@CountFollowers%></p>
+                            </div>
+                        </div>
+                    </small>
+                    <% if @userProfile != current_user %>
+                        <%if Follow.where(:follower_id => current_user.id).where(:followee_id => @userProfile.id).count == 0%>
+                            <%=button_to( 'Follow', follow_user_path(@userProfile.id), method: "POST", class:"btn btn-outline-primary my-2" )%>
+                        <% else %>
+                            <%=button_to( 'Unfollow', unfollow_user_path(@userProfile.id), method: "POST", class:"btn btn-outline-primary my-2" )%>
+                        <% end%> 
+                    <% end %>                               
                 </div>
             </div>
         </article>
@@ -37,7 +62,7 @@
                 <nav class="level">
                     <div class="level-left is-mobile d-flex justify-content-start">
                         
-                        <%if tweet.username== current_user.username %>
+                        <%if tweet.username == current_user.username %>
     
                         <%= form_with(url: tweet, method: "delete", class: "level-item p-1") do %>
                             <%= button_tag('',class:'icon' , data: {confirm: "Are you sure?"}) do %><i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -51,3 +76,4 @@
     </div>
 </div>
 <% end %>
+
