@@ -1,7 +1,7 @@
 <%= form_with(model: Tweet, local: true) do |f| %>
 <div class="form-group">
   <%= f.label :twittear, "New Tweet"%>
-  <%= f.text_area :twittear, id: "txtarea", :onkeyup => 'countChars()', class: "form-control form-control-lg textarea-autosize text-black", style:"background-color: #253341; border: #15202b;" ,:maxlength => 280  %>
+  <%= f.text_area :twittear, id: "txtarea", :onkeyup => 'countChars()', class: "form-control form-control-lg textarea-autosize text-white", style:"background-color: #253341; border: #15202b;" ,:maxlength => 280  %>
 </div>
 <div class="d-flex justify-content-between">
   <%= f.button :Post, class: "btn btn-outline-primary my-1"%>

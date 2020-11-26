@@ -1,0 +1,57 @@
+<nav class="card text-white bg-card mb-3 ">
+    <div class="container">
+        <div class="card-header">
+            <strong> <%= link_to "#{@userChat.username}", profile_path(@userChat.username) ,class:"text-white"%> </strong>
+        </div>
+       <div class="scrollchat scrollbar-black bordered-black square thin ">     
+          
+            <% if @mensajes != nil %>
+                    <%@mensajes.each do |mensaje|%>                    
+                            <% if  mensaje.recibe_id == current_user.id %>           
+                                <div class="card bg-card-2 mb-4">
+                                    <div class="container p-2">
+                                        <article class="media">
+                                            <div class="media-body">                                            
+                                                <div class="mt-0 mb-1 d-flex justify-content-start">
+                                                    <small class="card-text "><%=mensaje.mensaje%></small><br />
+                                                </div>
+                                                <div class="mt-0 mb-1 d-flex justify-content-end">
+                                                    <small class="card-text "><%=mensaje.created_at%></small>                                            
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>  
+                            <% else %>
+                                <div class="card bg-card-2 mb-4 ">
+                                    <div class="container p-2">
+                                        <article class="media">
+                                            <div class="media-body">
+                                                <div class="mt-0 mb-1 d-flex justify-content-end">
+                                                    <small class="card-text "><%=mensaje.mensaje%></small><br />
+                                                </div>
+                                                <div class="mt-0 mb-1 d-flex justify-content-start">
+                                                    <small class="card-text "><%=mensaje.created_at%></small>                                            
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            <% end %>
+                    <% end %>           
+            <% end %>    
+        
+        </div>
+        <div class = "m-0 p-0">
+            <div class="card  bg-card bg-card mb-4">
+                <div class="container p-2">
+                    <article class="media">
+                        <div class="media-body">
+                            <%= render 'formMensaje.html.erb'%>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

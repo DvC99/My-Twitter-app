@@ -1,0 +1,3 @@
+class Retweet < ApplicationRecord
+    
+end

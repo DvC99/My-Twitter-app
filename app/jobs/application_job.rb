@@ -4,4 +4,9 @@ class ApplicationJob < ActiveJob::Base
 
   # Most jobs are safe to ignore if the underlying records are no longer available
   # discard_on ActiveJob::DeserializationError
+  queue_as :default
+
+  def perform()
+    redirect_back(fallback_location: root_path)
+  end
 end

@@ -12,4 +12,12 @@ Rails.application.routes.draw do
   post '/user/:id/unfollow', to: "tweets#unfollow", as: "unfollow_user"
   get 'followers/:username', to:'tweets#Followers', as: 'followers'
   get 'following/:username', to:'tweets#Following', as: 'following'
+  resources :like
+  resources :retweet
+  resources :comment
+  get '/tweets/hashtag/:name', to:'tweets#hashtags', as: 'hashtags'
+  #resources :mensaje
+  get '/mensaje', to:'mensaje#mensaje', as: 'bandeja'
+  get '/mensaje/privado/:id/', to:'mensaje#privado', as:'privado'
+  post '/mensaje/send/:id/', to:'mensaje#create', as:'newsend'
 end

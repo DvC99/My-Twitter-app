@@ -41,6 +41,11 @@ class TweetsController < ApplicationController
     @CountFollowing = Follow.where("follower_id =:follower_id",  follower_id:@userProfile.id).count#seguido
     
   end
+  def hashtags
+    tag = Tag.find_by(name: params[:name])
+    @tweets_tag = tag.tweets
+    @users = User.where("username !=:username", username: current_user.username)  
+  end
   def follow
     @user = User.find(params[:id])
     current_user.followees << @user

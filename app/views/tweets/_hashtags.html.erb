@@ -1,0 +1,36 @@
+<% @tweets_tag.each do |tweet| %>
+<div class="card  bg-card mb-3">
+    <div class="container p-2">
+        <article class="media">
+            <div class="align-self-start">
+                <figure class=" mr-3 image is-64x64">
+                    <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_174b1ede77f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_174b1ede77f%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2213%22%20y%3D%2236.5%22%3E64x64%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                        alt="64x64" style="width: 64px; height: 64px;" data-holder-rendered="true">
+                </figure>
+            </div>
+            <div class="media-body">
+                <div class="mt-0 mb-1">
+                    <strong class="card-title">
+                    <%= link_to "#{tweet.username}", profile_path(tweet.username) ,class:"text-white"%></strong>
+                    <br />
+                    <p class="card-text">
+                        <%= render_with_hashtags(tweet.twittear) %>
+                    </p>
+                </div>
+                <nav class="level">
+                    <div class="level-left is-mobile d-flex justify-content-start">
+                        
+                        <%if tweet.username == current_user.username %>
+    
+                        <%= form_with(url: tweet, method: "delete", class: "level-item p-1") do %>
+                            <%= button_tag('',class:'icon' , data: {confirm: "Are you sure?"}) do %><i class="fa fa-trash-o" aria-hidden="true"></i>
+                            <% end %>
+                        <% end %>
+                        <%end%>
+                    </div>
+                </nav>
+        </div>
+        </article>
+    </div>
+</div>
+<% end %>

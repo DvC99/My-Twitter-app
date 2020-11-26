@@ -1,0 +1,11 @@
+<%= form_with model: Comment, url:"/comment", method: "post", local: true do |f| %>
+    <div class="form-group">
+        <%= hidden_field_tag :tweet_id, tweet_id %>
+        <%= f.label :comment, "Comment"%>
+        <%= f.text_area :comment, id: "txtarea", :onkeyup => 'countChars()', class: "form-control form-control-lg textarea-autosize text-white", style:"background-color: #253341; border: #15202b;" ,:maxlength => 280  %>
+    </div>
+    <div class="d-flex justify-content-between">
+        <%= f.button :Post, class: "btn btn-outline-primary my-1"%>
+        <p id="charNum" class="pr-3"></p>
+    </div>
+<% end %>

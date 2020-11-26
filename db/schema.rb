@@ -10,13 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_003525) do
+ActiveRecord::Schema.define(version: 2020_11_26_024606) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "username_id"
+    t.integer "tweet_id"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "follows", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string "username_id"
+    t.integer "tweet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mensajes", force: :cascade do |t|
+    t.integer "envia_id"
+    t.integer "recibe_id"
+    t.string "mensaje"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "retweets", force: :cascade do |t|
+    t.string "username_id"
+    t.integer "tweet_id"
+    t.string "tweet"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags_tweets", id: false, force: :cascade do |t|
+    t.integer "tweet_id"
+    t.integer "tag_id"
+    t.index ["tag_id"], name: "index_tags_tweets_on_tag_id"
+    t.index ["tweet_id"], name: "index_tags_tweets_on_tweet_id"
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -44,4 +88,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_003525) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tags_tweets", "tags"
+  add_foreign_key "tags_tweets", "tweets"
 end

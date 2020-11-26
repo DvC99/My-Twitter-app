@@ -1,60 +1,61 @@
-# Entregable-03
+# Entrega Final
 Link: https://twitter-like-a-app.herokuapp.com/
 Para correr el proyecto localmente ejecutar yarn start y abrir http://localhost:3000 en navegador
 ### FECHA  DE  ENTREGA: 
 
-Octubre 30, 2020 - 11:59PM
+Noviembre 26, 2020 - 2:30 PM
 
 ### VALOR: 
+
 20%
+
+### MODALIDA DE ENTREGA
+
+Presentación oral de 15 mins. el Noviembre 26, 2020 - 2:30 PM - El orden de los grupos lo definiremos en clase.
 
 ### MODALIDAD DE ELABORACIÓN: 
 
-Grupal. Maximo 2 Integrantes.
+Grupal. Grupo del Entregable 02 y 03
+
+### PREPARACIÓN PARA LA DESARROLLAR LA ENTREGA
+
+- Deben hacer Merge de los Entregables anteriores al repositorio antes de crear el branch de la entrega final.
 
 ### REQUERIMIENTO DE LA ENTREGA:  
 
-Aplicando los conocimientos de Rail svistos en clases, implementa las siguientes funcionalidades de Twitter-Like-App
+Implementa las siguientes funcionalidades en la Twitter-Like-App de Rails que hemos venido dessarrollando en el semestre.
 
-- Test de integración de los tweet. Debe incluir crear, eliminar y listar - Valor (1.0)
-    - Test funcionalidad - crear tweet(0.33)
-    - Test funcionalidad - eliminar tweet(0.33)
-    - Test funcionalidad - listar tweets(0.33)
 
-- Test unitarios de la Clase tweet. Debe incluir validaciones y associaciones - Valor (1.0)
-    - Test validaciones de la clase tweet(0.5)
-    - Test associaciones de la clase tweet(0.33)
+- Funcionalidad - Dar "me gusta" a un tweet(Likes) - 0.5
+- Funcionalidad - Contar y mostrar el numero de "me gusta"(likes) en un tweet - 0.25
+- Funcionalidad - Enviar un mensaje directo a usuarios que te siguen - 1.0
+- Funcionalidad - Retwittear un tweet - 0.5
+- Funcionalidad - Contar y mostrar el numero de retweets en un tweet - 0.25
+- Funcionalidad - Citar (Quote) retweet - 0.5
+- Funcionalidad - Hashtags, se crean con # y generan un link, el cual si le das click, te despliega todos los tweets que incluyan ese hashtag - 0.5
+- Funcionalidad - Buscador (Search) - 0.5
+- Funcionalidad - Tweet con imagenes - 0.5
+- Implementación de Active Job en alguna de las funcionalidades de la aplicación ejecutando alguna(s) de las tareas en segundo plano - 0.5
 
-- Funcionalidad Follow Valor (2.0)
-    - Seguir a un usuario (0.5)
-    - Timeline twwets propios + tweets de los usuarios que sigues (0.5)
-    - Listar followers (0.5)
-    - Listar following (0.5)
-
-- Test de la Funcionalidad Follow - Valor (1.0)
-    - Test funcionalidad - Seguir a un usuario (0.25)
-    - Test funcionalidad - Timeline twwets propios + tweets de los usuarios que sigues (0.25)
-    - Test funcionalidad - Listar followers (0.25)
-    - Test funcionalidad - Listar following (0.25)
 
 
 #### Bonus Point
 
-- Test de authentication 0.5
-- Notificacion al correo cada vez que alguien siga al usuario 0.5
-
+- Funcionalidad - Responder a un tweet (reply) - 0.5
+- Menciones @username - 0.5
 
 ### MODO DE ENTREGA:  
 
-- Enviar el entregable generando un Pull request con el titulo Assignment-03 en el repositorio generado assignment-02-NombreDelGrupo
+- Enviar el entregable generando un Pull request con el titulo Assigment-04 en el repositorio generado assignment-02-NombreDelGrupo.
 
 - Debe contener commits de la autoria de ambos estudiantes miebros del equipo.
 
-- Los estudiantes deben verificar la hora de cierre de la entrega, Octubre 30, 12:00PM. No se aceptarán Pull request despues de esa hora
+- Los estudiantes deben verificar la hora de cierre de la entrega, Noviembre 26, 2:30 PM. No se aceptarán Pull request despues de esa hora.
 
-- La aplicación debe estar corriendo en una instancia en Heroku. Adjuntar el link de la aplicación de heroku en las notas del Pull Request. Si la app aun no está desplegada en Heroku o algun servicio en la nube, colocar las instrucciones de como iniciar la aplicacion en local.
+- La entrega debe estar desplegada en un servidor en la nube. Preparar el link para la presentación.
 
 - Si tienen alguna duda, pueden escribirme al email.
+
 
 ----
 
